@@ -16,6 +16,3 @@ npm-debug*
 
 # System local files
 .DS_Store
-
-# Audio files
-audio/
