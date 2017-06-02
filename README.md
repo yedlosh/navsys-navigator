@@ -1,30 +1,35 @@
 # navsys-navigator
-## IIM LED Navigation System - Navigator Control
 
-This README would normally document whatever steps are necessary to get your application up and running.
+**navsys** is a thesis project, which aims to provide an indoor navigation solution with audiovisual feedback, 
+using a combination of smartphone based WiFi positioning and physical navigation units. 
+For a documentation of the whole project see [navsys-docs](https://github.com/yedlosh/navsys-docs) repository.
 
-### What is this repository for? ###
+## Navigator
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Navigation units powered by Raspberry Zero W, equipped with digital LED strips. Based on Express.JS as well, 
+they are exposing a REST interface for accepting commands.
 
-### How do I get set up? ###
+### Environment
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+The navigator server needs npm and node.js to install and run. While this goes without thinking on regular machines, 
+it might be needed to point out here, as Raspbian does not include these. 
+For Raspberry Zero W the Node.js compiled for ARM v6 has to be used.
 
-### Contribution guidelines ###
+### Installation
 
-* Writing tests
-* Code review
-* Other guidelines
+The navigator server is set up as an npm package. Simply install all package dependencies with
+```bash
+$ npm install
+```
 
-### Who do I talk to? ###
+### TODO Configuration
+#### System
+* network setup
+* start in local.rc
+#### .env file
+* setting values
+* strip endings 
 
-* Repo owner or admin
-* Other community or team contact
+### LED signs
+The navigator unit is supposed to have some digital LED strip connected, which acts as the navigation sign.
+Currently WS2801 and WS2812 strips are supported and tested to work. As these LED drivers operate at 5V and Raspberry runs at 3.3V, a logic level shifter has to be used. Any generic one will do. Another option is to run the LED strip at the 3.3V as well, which should work but at the cost of losing quite a lot of brightness.
